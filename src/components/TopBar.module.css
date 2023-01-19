@@ -1,0 +1,12 @@
+/*top bar */
+.topBar
+{
+    width: 100%;
+    height: 85px;
+}
+.flexbox
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}

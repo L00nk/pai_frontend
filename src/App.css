@@ -1,38 +1,113 @@
-.App {
-  text-align: center;
+body
+{
+  background-image:url("images/wallpaper1.jpg");
+  backdrop-filter: blur(5px);
+  background-size: cover;
 }
+.app-logo
+{
+  display: block;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom: 50px;
+  margin-top: 80px;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  padding-top:5%;
+  height:150px;
+  width:150px;
+
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.flex-container
+{
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding-top: 50px;
 }
+.card-blue
+{
+  max-width: 50vw;
+  width:670px;
+  min-width: 450px;
+  margin-right:auto;
+  margin-left:auto;
+  margin-top:25px;
+  height: 800px;
+  background-color: rgba(194, 249, 255, 0.94);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
 
-.App-link {
-  color: #61dafb;
 }
+.title
+{
+  display:block;
+  max-width:521px;
+  max-height: 209px;
+  height:50%;
+  margin:auto;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  font-style: normal;
+  font-weight: bold;
+  font-size: 60px;
+  line-height: 87px;
+  text-align: center;
+  color: #000000;
+}
+.small-text
+{
+  width: 250px;
+  height: 44px;
+  display:block;
+  padding-top:10px;
+  margin-left:auto;
+  margin-right:auto;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 20px;
+  text-align: center;
+
+  color: #000000;
+}
+.link_text
+{
+  width: 250px;
+  height: 44px;
+  display:block;
+  padding-top:10px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  color: #000000;
+}
+.icon
+{
+  padding-top:15px;
+}
+.log-in-button
+{
+  background: #FFFFFF;
+  border: 2px solid #000000;
+  box-sizing: border-box;
+  border-radius: 30px;
+
+  width:70%;
+  max-width:490px;
+  height: 55px;
+  display:block;
+  margin:auto;
+
+  font-family:Nunito, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 49px;
+  transition-duration:0.4s;
+  color: #000000;
+}
+.log-in-button:hover
+{
+  background-color: #e7e7e7;
 }

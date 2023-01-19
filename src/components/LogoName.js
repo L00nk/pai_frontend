@@ -4,7 +4,7 @@ function LogoName (){
     return (
         <div className={classes.container}>
             <img src={ico} className={classes.app_logo} alt="logo"/>
-            <p className={classes.logo_name}>Persona Quotes</p>
+            <p className={classes.logo_name}>Persona Forum</p>
         </div>
     );
 }

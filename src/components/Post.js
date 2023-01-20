@@ -38,7 +38,7 @@ function Post()
                                        placeholder="Komentarz" onChange={e => setComment(e.target.value)}/>
                             </div>
                             <RoundedButton className={classes.button} text='Dodaj'/>
-                            <RoundedButton className={classes.button} onClick = {returnPosts} text='Powrót do postów'/>
+                            <RoundedButton className={classes.button1} onClick = {returnPosts} text='Powrót do postów'/>
                         </form>
 
 

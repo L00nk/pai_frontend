@@ -50,7 +50,6 @@ function Home() {
         }).catch (error=>{console.log(error)});
 
     },[]);
-    console.log(postContext.user.id,postContext.user.login,postContext.user.email );
 
     function getAllUser(){
         axios.get('post/get-all-user', {headers:{authorization : "Bearer "+ token}}).then(response =>{

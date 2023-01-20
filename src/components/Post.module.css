@@ -163,6 +163,7 @@
 }
 .meetingInput{
     margin-bottom: 5px;
+    overflow: auto;
 
     font-family: Nunito;
     font-style: normal;

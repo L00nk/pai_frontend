@@ -10,7 +10,8 @@ import {Chats, Pencil, Trash} from "phosphor-react";
 
 function Post()
 {
-    const [comment, setComment] = useState('');
+    const [comments, setComments] = useState([]);
+    const [comm, setComm] = useState('');
     const postContext=useContext(PostContext);
     const [isLoading, setIsLoading] = useState(true);
     const [isEdit, setIsEdit] = useState(false);
@@ -67,20 +68,49 @@ function Post()
         });
 
     }
+    function addComm(event)
+    {
+        event.preventDefault();
+        const comm_info=
+            {
+                comment:comm
+            }
+
+        axios.post('comment/add/'+postContext.post.id,comm_info,{headers: {authorization: "Bearer " + token}}).then(response => {
+            console.log(response);
+            getComments();
+        }).catch(function (error) {
+            console.log(error);
+        });
+
+    }
+    function getComments(){
+        axios.get('comment/get-all-comments/'+postContext.post.id, {headers:{authorization : "Bearer "+ token}}).then(response =>{
+            console.log(response);
+            setComments(response.data);
+
+        }).catch (error=>{console.log(error)});
+    }
+
+    useEffect(() => {
+       getComments();
+
+    },[]);
 
     return (
                 <div className={classes.container}>
                     <div className={classes.darkBox}>
                         <p className={classes.darkBoxTitle}>Dodaj komentarz</p>
-                        <form className={classes.meetingForm}>
+                        <form className={classes.meetingForm} onSubmit={addComm}>
                             <div className={classes.meetingInput}>
-                                <input type="text" maxLength='50'
-                                       title="" id='comment'
-                                       placeholder="Komentarz" onChange={e => setComment(e.target.value)}/>
+                                <input type="text" maxLength='50' required
+                                       title="Komentarz powinien zawierać od 2 do 80 znaków" id='comment'
+                                       placeholder="Komentarz" onChange={e => setComm(e.target.value)}/>
                             </div>
-                            <RoundedButton className={classes.button} text='Dodaj'/>
-                            <RoundedButton className={classes.button1} onClick = {returnPosts} text='Powrót do postów'/>
+                            <button className={classes.button}>Dodaj</button>
+
                         </form>
+                        <button className={classes.button1} onClick = {returnPosts}> Powrót do postów </button>
 
 
                     </div>
@@ -121,13 +151,13 @@ function Post()
                         }
                         <p className={classes.commentHeader}>Komentarze:</p>
 
-                        <div className={classes.comments}>
-                            <Comment title = "Tytuł" content = "AAAAAAA"/>
-                            <Comment title = "Tytuł" content = "AAAAAAA"/>
-                            <Comment title = "Tytuł" content = "AAAAAAA"/>
-                            <Comment title = "Tytuł" content = "AAAAAAA"/>
+                            <div className={classes.comments}>
+                                {comments.map(comment => <Comment key={comment.id} id={comment.id} comment={comment.comment}
+                                                                  post={comment.post.id} user={comment.user.login} uid={comment.user.id}/>)}
 
-                        </div>
+
+                            </div>
+
 
                     </div>
                 </div>

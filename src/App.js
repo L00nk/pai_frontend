@@ -10,6 +10,7 @@ import Home from "./components/Home";
 import AuthRoute from "./components/AuthRoute";
 import Post from "./components/Post";
 import AddPost from "./components/AddPost";
+import Profile from "./components/Profile";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <UserRoute path='/register' component={Register}/>
         <AuthRoute path='/home' component={Home}/>
         <AuthRoute path='/addPost' component={AddPost}/>
+        <AuthRoute path='/profile' component={Profile}/>
 
       </Switch>
   );

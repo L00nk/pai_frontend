@@ -20,6 +20,7 @@ function Home() {
     let history = useHistory();
 
     function profileOnClick() {
+        history.push('/profile')
 
     }
     function addOnClick() {
@@ -32,17 +33,25 @@ function Home() {
         history.push('/');
         history.go(0);
     }
-    /*
+    function setUser(id,login,email)
+    {
+        postContext.curUser({
+            id:id,
+            login:login,
+            email:email
+        })
+    }
+
     useEffect(() => {
-        axios.get('post/get-all-user', {headers:{authorization : "Bearer "+ token}}).then(response =>{
+        axios.get('user/get-self', {headers:{authorization : "Bearer "+ token}}).then(response =>{
             console.log(response);
-            setPosts(response.data);
-            setIsLoading(false);
+            setUser(response.data.id,response.data.login,response.data.email);
+
         }).catch (error=>{console.log(error)});
 
     },[]);
+    console.log(postContext.user.id,postContext.user.login,postContext.user.email );
 
-     */
     function getAllUser(){
         axios.get('post/get-all-user', {headers:{authorization : "Bearer "+ token}}).then(response =>{
             console.log(response);
@@ -111,7 +120,7 @@ function Home() {
                     </div>
                     <div className={classes.lightBox}>
                         {posts.map(post => <ChatItem key={post.id} id={post.id} dateAndTime={post.date} content={post.content}
-                                                     title={post.title} user={post.id_user}/>)}
+                                                     title={post.title} user={post.user.login} uid={post.user.id}/>)}
                     </div>
                 </div>
             </div>

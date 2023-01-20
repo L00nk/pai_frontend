@@ -19,7 +19,9 @@ function ChatItem(props)
             id:props.id,
             title:props.title,
             content:props.content,
-            dateAndTime:props.dateAndTime
+            dateAndTime:props.dateAndTime,
+            user:props.user,
+            uid:props.uid
         })
     }
 

@@ -54,10 +54,11 @@ function AddPost (){
                     </div>
                     <form onSubmit={submitHandler} className={classes.addForm}>
                         <div className={classes.loginInput}>
-                            <input type="text" id='title' required placeholder="Tytuł" onChange={e=>setTitle(e.target.value)}/>
+                            <input type="text" id='title' required placeholder="Tytuł" minLength={3}  maxLength={40} title ="Tytuł powinien zawierać od 3 do 40 znaków"
+                                   onChange={e=>setTitle(e.target.value)}/>
                         </div>
                         <div className={classes.loginInputText}>
-                            <textarea className={classes.desc} id='content'  required placeholder="Treść posta" onChange={e=>setContent(e.target.value)}/>
+                            <textarea className={classes.desc} id='content'  minLength={5}  maxLength={200} title ="Post powinien składać się z 5-200 znaków" required placeholder="Treść posta" onChange={e=>setContent(e.target.value)}/>
                         </div>
                         <RoundedButton className={classes.button} text='Dodaj'/>
                     </form>
